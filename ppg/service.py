@@ -2938,7 +2938,7 @@ def process_estimation_of_bp():
 		print("version_to_check:",version_to_check)
 
 		# Set the LD_LIBRARY_PATH environment variable
-		set_library = os.environ['LD_LIBRARY_PATH'] = '/home/PPG-Compute/PPG-Python/ppg/C-Library/exec/'
+		set_library = os.environ['LD_LIBRARY_PATH'] = '/home/PPG-Compute_v2/ppg/C-Library/exec/'
 		post_denoise_dir='/var/www/html/ppg/exec/post_denoise/'
 		os.makedirs(post_denoise_dir, exist_ok=True)
 
@@ -2949,7 +2949,7 @@ def process_estimation_of_bp():
 
 			de_noise_flag= int(request.form.get("de_noise_flag",0))
 			print("de_noise_flag:",de_noise_flag)
-			command = ['/home/PPG-Compute/PPG-Python/ppg/C-Library/exec/libPPG_V1.2.2S', pre_denoise_dir+str(file.filename), post_denoise_dir, str(record_name), str(samplingf), str(analysis_flag), str(data_duration), str(de_noise_flag), str(stitch_flag)]
+			command = ['/home/PPG-Compute_v2/ppg/C-Library/exec/libPPG_V1.2.2S', pre_denoise_dir+str(file.filename), post_denoise_dir, str(record_name), str(samplingf), str(analysis_flag), str(data_duration), str(de_noise_flag), str(stitch_flag)]
 
 		else: #new version for new clib
 			print("new version")
@@ -2957,7 +2957,7 @@ def process_estimation_of_bp():
 			de_noise_flag= int(request.form.get("de_noise_flag",1))
 			print("de_noise_flag:",de_noise_flag)
 			normalization_technique= int(request.form.get("normalization_technique",1))
-			command = ['/home/PPG-Compute/PPG-Python/ppg/C-Library/exec/libPPG_V1.2.3S', '/var/www/html/ppg/exec/pre_denoise/'+str(file.filename), '/var/www/html/ppg/exec/post_denoise/', str(record_name), str(samplingf), str(analysis_flag), str(data_duration), str(de_noise_flag), str(stitch_flag), str(normalization_technique)]
+			command = ['/home/PPG-Compute_v2/ppg/C-Library/exec/libPPG_V1.2.3S', '/var/www/html/ppg/exec/pre_denoise/'+str(file.filename), '/var/www/html/ppg/exec/post_denoise/', str(record_name), str(samplingf), str(analysis_flag), str(data_duration), str(de_noise_flag), str(stitch_flag), str(normalization_technique)]
 
 		# command = ['/home/PPG-Python/ppg/C-Library/exec/libPPG_V1.2.3S', '/var/www/html/ppg/exec/pre_denoise/'+str(file.filename), '/var/www/html/ppg/exec/post_denoise/', str(record_name), str(sampling_frequency), str(analysis_flag), str(data_duration), str(de_noise_flag), str(stitch_flag),str(normalization_technique)]
 
@@ -2978,7 +2978,7 @@ def process_estimation_of_bp():
 			data = json.load(denoise_file)
 			
 		denoise_data = {"csv_file":denoise_csv,"json_file":denoise_json,"json_data":data}
-		estimateFile='/home/PPG-Compute/PPG-Python/ppg_files/bp_estimation_files/'
+		estimateFile='/home/PPG-Compute_v2/ppg_files/bp_estimation_files/'
 		os.makedirs(estimateFile, exist_ok=True)
 		save_path =estimateFile  + file.filename
 		# file.save(save_path)
@@ -2990,7 +2990,7 @@ def process_estimation_of_bp():
 			
 			if denoise_csv:
 				# save_path = 'F:/Office Work/Helyxon/Environment/PPG/' + file.filename
-				save_path = '/home/PPG-Compute/PPG-Python/ppg_files/bp_estimation_files/' + denoise_csv
+				save_path = '/home/PPG-Compute_v2/ppg_files/bp_estimation_files/' + denoise_csv
 				denoise_csv.save(save_path)
 
 			testid, extension = os.path.splitext(file.filename)
