@@ -27,7 +27,8 @@ from packaging import version
 from dateutil.relativedelta import relativedelta
 
 # PPG_MAIN_SERVER = "http://ec2-13-233-95-219.ap-south-1.compute.amazonaws.com:5000/service" #AWS Prod
-PPG_MAIN_SERVER = "http://ec2-65-0-182-165.ap-south-1.compute.amazonaws.com:5001/service"
+# PPG_MAIN_SERVER = "http://ec2-65-0-182-165.ap-south-1.compute.amazonaws.com:5001/service"
+PPG_MAIN_SERVER = "http://ec2-65-0-182-165.ap-south-1.compute.amazonaws.com:5000/service"#compute_stage_2.0
 service_url = Blueprint('service_url', __name__)
 
 @service_url.route("/")
